@@ -14,14 +14,11 @@ descrita, com uma precisão arbitrária. O programa deve imprimir os valores apr
 calculados a cada passo, até o valor final.
 '''
 
-precisao = float(raw_input("Digite uma precisão: "))
-
-i = 0
-somatorio = 0
-ultimo_somatorio = 0
+precisao = float(raw_input("Insira uma precisão: "))
+i, somatorio, ultimo_somatorio  = 0, 0, 0
 while True:
-	serie = 4 * (-1) ** i * (1 / (2.0 * i + 1))
-	somatorio += serie
+	# Soma dos termos da sequência pi (linha 6)
+	somatorio += 4 * (-1) ** i * (1 / (2.0 * i + 1))
 	i += 1
 	print '%.6f' % somatorio
 	if abs(somatorio - ultimo_somatorio ) < precisao:
