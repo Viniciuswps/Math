@@ -12,7 +12,7 @@ p = int(raw_input("Insira o valor verdade de p: "))
 q = int(raw_input("Insira o valor verdade de q: "))
 print ''
 
-# conjunçao
+# conjunção
 if p and q:
     print "Conjunçao: True"
 else:
