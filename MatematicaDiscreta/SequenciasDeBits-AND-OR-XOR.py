@@ -4,7 +4,7 @@
 operações.
 @version 21/03/2018    @author: Vinicius Barbosa
 '''
-print "Insira duas sequências de comprimento n"
+print "Insira duas sequências de mesmo comprimento"
 sequencia1 = raw_input("Sequência1: ")
 sequencia2 = raw_input("Sequência2: ")
 print ""
