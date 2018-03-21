@@ -34,5 +34,5 @@ for i in range(len(sequencia1)):
         ouExclusivo += '0'
         
 print "AND: %s" % conjuncao
-print "OR: %s" % disjuncao
+print "OR : %s" % disjuncao
 print "XOR: %s" % ouExclusivo
