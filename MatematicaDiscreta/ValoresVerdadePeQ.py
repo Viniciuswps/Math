@@ -1,7 +1,7 @@
 #coding: utf-8
 '''
-@problem: Dados os vlores verdade das proposições p e q, encontre os valores-verdade da conjunção, disjunção, ou exclusivo, sentença condicional e
-bicondicional dessa proposições.
+@problem: Dados os valores verdade das proposições p e q, encontre os valores-verdade da conjunção, disjunção, ou exclusivo,
+sentença condicional e bicondicional dessa proposições.
 @version 21/03/2018    @author: Vinicius Barbosa
 '''
 
