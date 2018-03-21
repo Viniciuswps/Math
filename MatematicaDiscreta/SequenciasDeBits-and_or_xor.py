@@ -28,7 +28,7 @@ for i in range(len(sequencia1)):
 # XOR
 ouExclusivo = ""
 for i in range(len(sequencia1)):
-    if int(sequencia1[i]) or int(sequencia2[i]) and (not int(sequencia1[i]) or not int(sequencia2[i])):
+    if (int(sequencia1[i]) or int(sequencia2[i])) and (not int(sequencia1[i]) or not int(sequencia2[i])):
         ouExclusivo += '1'
     else:
         ouExclusivo += '0'
