@@ -90,7 +90,7 @@ public class MultiplicacaoDeMatrizes {
             }
         }
         else {
-            System.out.println("\n A x B não existe, pois o número de colunas de A é diferente do de linhas em B.");
+            System.out.println("\nA x B não existe, pois o número de colunas de A é diferente do de linhas em B.");
         }
 
     }
