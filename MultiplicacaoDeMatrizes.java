@@ -64,7 +64,7 @@ public class MultiplicacaoDeMatrizes {
             System.out.println();
         }
 
-        int aux;
+        
         if (colunasA == linhasB) {
             int ordem = linhasA; // == colunasB
             int[][] AB = new int[ordem][ordem];
@@ -72,15 +72,14 @@ public class MultiplicacaoDeMatrizes {
             for (int i = 0; i < ordem ; i++) {
                 for (int j = 0; j < ordem; j++) {
 
-                    aux = 0;
                     for (int k = 0; k < colunasA ; k++) {
-                        aux += A[i][k] * B[k][j] ;
+                        AB[i][j] += A[i][k] * B[k][j] ;
                     }
-                    AB[i][j] = aux;
-
+                    
                 }
             }
 
+            // imprimindo AB
             System.out.println();
             System.out.println("AB: ");
             for (int i = 0; i < AB.length ; i++) {
