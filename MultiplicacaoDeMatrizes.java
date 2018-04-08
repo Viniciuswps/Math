@@ -21,7 +21,7 @@ public class MultiplicacaoDeMatrizes {
 
         for (int i = 0; i < linhasA ; i++) {
             for (int j = 0; j < colunasA; j++) {
-                System.out.printf("Insira o elemento da %d° linhas e %d° coluna: ", i + 1, j + 1);
+                System.out.printf("Insira o elemento da %d° linha e %d° coluna: ", i + 1, j + 1);
                 A[i][j] = input.nextInt();
             }
         }
@@ -37,7 +37,7 @@ public class MultiplicacaoDeMatrizes {
 
         for (int i = 0; i < linhasB ; i++) {
             for (int j = 0; j < colunasB; j++) {
-                System.out.printf("Insira o elemento da %d° linhas e %d° coluna: ", i + 1, j + 1);
+                System.out.printf("Insira o elemento da %d° linha e %d° coluna: ", i + 1, j + 1);
                 B[i][j] = input.nextInt();
             }
         }
@@ -47,7 +47,7 @@ public class MultiplicacaoDeMatrizes {
         System.out.println("A: ");
         for (int i = 0; i < linhasA ; i++) {
             for (int j = 0; j < colunasA; j++) {
-                System.out.printf("|%d| ", A[i][j]);
+                System.out.printf("| %d | ", A[i][j]);
             }
             System.out.println();
         }
@@ -59,18 +59,17 @@ public class MultiplicacaoDeMatrizes {
         System.out.println("B: ");
         for (int i = 0; i < linhasB ; i++) {
             for (int j = 0; j < colunasB; j++) {
-                System.out.printf("|%d| ", B[i][j]);
+                System.out.printf("| %d | ", B[i][j]);
             }
             System.out.println();
         }
 
         
         if (colunasA == linhasB) {
-            int ordem = linhasA; // == colunasB
-            int[][] AB = new int[ordem][ordem];
+            int[][] AB = new int[linhasA][colunasB];
 
-            for (int i = 0; i < ordem ; i++) {
-                for (int j = 0; j < ordem; j++) {
+            for (int i = 0; i < linhasA ; i++) {
+                for (int j = 0; j < colunasB; j++) {
 
                     for (int k = 0; k < colunasA ; k++) {
                         AB[i][j] += A[i][k] * B[k][j] ;
@@ -84,7 +83,7 @@ public class MultiplicacaoDeMatrizes {
             System.out.println("AB: ");
             for (int i = 0; i < AB.length ; i++) {
                 for (int j = 0; j < AB[i].length; j++) {
-                    System.out.printf("|%d| ", AB[i][j]);
+                    System.out.printf("| %d | ", AB[i][j]);
                 }
                 System.out.println();
             }
