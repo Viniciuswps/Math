@@ -14,35 +14,12 @@ public class JogoDaVelha {
 		
 		String[][] tabuleiro = new String[3][3];
 		
-		for (int i = 0; i < tabuleiro.length; i++) {
-			for (int j = 0; j < tabuleiro[i].length; j++) {
-				tabuleiro[i][j] = " ";
-			}
-		}
+		criarTabuleiro(tabuleiro);
 
-		System.out.println();
-
-		boolean tabuleiroCheio = false, jogador1Ganhou = false, jogador2Ganhou = false, posValida, deuVelha;
+		boolean tabuleiroCheio = false, jogador1Ganhou = false, jogador2Ganhou = false, posValida, deuVelha, fimDeJogo = false;
 		int posicao = 0;
 		while (true) {
-
-			// IMPRIMINDO O  TABULEIRO
-			for (int i = 0; i < tabuleiro.length; i++) {
-				for (int j = 0; j < tabuleiro[i].length; j++) {
-					if (j < tabuleiro[i].length - 1) {
-						System.out.print(tabuleiro[i][j] + " |");
-					} else {
-						System.out.print(tabuleiro[i][j]);
-					}
-					
-				}
-				if (i < tabuleiro.length - 1) {
-					System.out.print("\n--------\n");
-				}
-				
-			}
-			System.out.println();
-			System.out.println();
+			imprimirTabuleiro(tabuleiro);
 
 
 			System.out.println("Jogador 1 - 'O' ");
@@ -167,23 +144,7 @@ public class JogoDaVelha {
 
 
 
-			// IMPRIMINDO O  TABULEIRO
-			for (int i = 0; i < tabuleiro.length; i++) {
-				for (int j = 0; j < tabuleiro[i].length; j++) {
-					if (j < tabuleiro[i].length - 1) {
-						System.out.print(tabuleiro[i][j] + " |");
-					} else {
-						System.out.print(tabuleiro[i][j]);
-					}
-					
-				}
-				if (i < tabuleiro.length - 1) {
-					System.out.print("\n--------\n");
-				}
-				
-			}
-			System.out.println();
-			System.out.println();
+			imprimirTabuleiro(tabuleiro);
 
 			if (jogador1Ganhou) {
 				System.out.println("Jogador 1 (O) venceu!");
@@ -325,23 +286,9 @@ public class JogoDaVelha {
 				jogador2Ganhou = true;
 			}
 
-			// IMPRIMINDO O  TABULEIRO
-			for (int i = 0; i < tabuleiro.length; i++) {
-				for (int j = 0; j < tabuleiro[i].length; j++) {
-					if (j < tabuleiro[i].length - 1) {
-						System.out.print(tabuleiro[i][j] + " |");
-					} else {
-						System.out.print(tabuleiro[i][j]);
-					}
-					
-				}
-				if (i < tabuleiro.length - 1) {
-					System.out.print("\n--------\n");
-				}
-				
-			}
-			System.out.println();
-			System.out.println();
+			imprimirTabuleiro(tabuleiro);
+
+			
 
 			if (jogador2Ganhou) {
 				System.out.println("Jogador 2 (X) venceu!");
@@ -367,5 +314,66 @@ public class JogoDaVelha {
 		
 	}
 
-}
+	private static void imprimirTabuleiro(String[][] tabuleiro) {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro[i].length; j++) {
+				if (j < tabuleiro[i].length - 1) {
+					System.out.print(tabuleiro[i][j] + " |");
+				} else {
+					System.out.print(tabuleiro[i][j]);
+				}
+				
+			}
+			if (i < tabuleiro.length - 1) {
+				System.out.print("\n--------\n");
+			}
+			
+		}
+		System.out.println();
+		System.out.println();
 
+	}
+
+	private static void criarTabuleiro(String[][] tabuleiro) {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro[i].length; j++) {
+				tabuleiro[i][j] = " ";
+			
+		}
+		System.out.println();
+	}
+
+	private static void veficarCampeao(String[][] tabuleiro, jogador, peca) {
+
+		boolean jogador1Ganhou = false;
+
+		// verificando se há campeao nas linhas horizontais
+		if (tabuleiro[0][0].equals(peca) && tabuleiro[0][1].equals(peca) && tabuleiro[0][2].equals(peca)
+			|| tabuleiro[1][0].equals(peca) && tabuleiro[1][1].equals(peca) && tabuleiro[1][2].equals(peca)
+			|| tabuleiro[2][0].equals(peca) && tabuleiro[2][1].equals(peca) && tabuleiro[2][2].equals(peca) ) {
+			jogador1Ganhou = true;
+		}
+
+		// verificando se há campeao nas linhas verticais
+		if (tabuleiro[0][0].equals(peca) && tabuleiro[1][0].equals(peca) && tabuleiro[2][0].equals(peca)
+			|| tabuleiro[0][1].equals(peca) && tabuleiro[1][1].equals(peca) && tabuleiro[2][1].equals(peca)
+			|| tabuleiro[0][2].equals(peca) && tabuleiro[1][2].equals(peca) && tabuleiro[2][2].equals(peca) ) {
+			jogador1Ganhou = true;
+		}
+
+		// verificando se há campeao nas diagonais
+		if (tabuleiro[0][0].equals(peca) && tabuleiro[1][1].equals(peca) && tabuleiro[2][2].equals(peca) 
+			|| tabuleiro[2][0].equals(peca) && tabuleiro[1][1].equals(peca) && tabuleiro[0][2].equals(peca) ) {
+			jogador1Ganhou = true;
+		}
+		
+	}
+
+
+	private static void verificarEspacoVazio(String[][] tabuleiro) {
+
+	}
+
+
+
+}
