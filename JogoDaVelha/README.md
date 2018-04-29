@@ -7,7 +7,12 @@ Pequeno programa que implementa o jogo da velha.
 ---------------
 OBJETIVOS:
 
-      () Melhorar o código do jogo inicial;
-      () Refatorar o código;
+- [x] Melhorar o código do jogo inicial;
+- [x] Refatorar o código.
+
+
+-------------------------------------------------------
+- Versão atualizada https://github.com/Viniciuswps/jogo-da-velha
+
       
   
