@@ -11,8 +11,9 @@ OBJETIVOS:
 - [x] Refatorar o código.
 
 
--------------------------------------------------------
-- Versão atualizada https://github.com/Viniciuswps/jogo-da-velha
+
+Versão atualizada: https://github.com/Viniciuswps/jogo-da-velha
+-------------------------------------------------------------
 
       
   
