@@ -2,5 +2,4 @@
 
 -----------------------
 
-   Este diretório contém resoluções de alguns problemas que julgo interessantes e pequenos programas que
-  envolvem matemática.
+   Diretório com resoluções de alguns problemas interessantes e pequenos programas que envolvem matemática.
