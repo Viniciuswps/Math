@@ -1,96 +1,78 @@
-/*
-@versao: 05/04/2018   @autor: Vinicius Barbosa
-:::::::: Programa que recebe duas matrizes(A e B) e imprime, quando possível, o produto matricial A x B.
-*/
 import java.util.Scanner;
 
+/**
+ * Recebe duas matrizes(A e B) e imprime, quando possível, o produto matricial A x B.
+ * 
+ * @author Vinicius Barbosa.
+ *
+ */
 public class MultiplicacaoDeMatrizes {
+	private static Scanner input = new Scanner(System.in);
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		Matriz A = criaMatriz("A");
+		Matriz B = criaMatriz("B");
+		System.out.println(A.toString());
+		System.out.println(B.toString());
+		if (multiplicaMatrizes(A, B) != null) {
+			Matriz AB = (multiplicaMatrizes(A, B));
+			System.out.println(AB.toString());
+		} else {
+			System.out.println("A x B não existe, pois o número de colunas de A é diferente do de linhas em B.");
+		}
+	}
 
-        Scanner input = new Scanner(System.in);
+	/**
+	 * Método que recebe a quantidade de linhas e colunas da matriz e em seguida a
+	 * preenche com dados inseridos pelo usuário.
+	 * 
+	 * @param nome
+	 *            nome da matriz (ex.: A, B ... )
+	 * 
+	 * @return uma Matriz
+	 */
+	private static Matriz criaMatriz(String nome) {
+		System.out.println("| -- Matriz " + nome + " -- |");
+		System.out.print("Insira o número de linhas: ");
+		int numeroLinhas = input.nextInt();
+		System.out.print("Insira o número de colunas: ");
+		int numeroColunas = input.nextInt();
+		int[][] mat = new int[numeroLinhas][numeroColunas];
+		for (int i = 0; i < numeroLinhas; i++) {
+			for (int j = 0; j < numeroColunas; j++) {
+				System.out.printf("Insira o elemento da %d° linha e %d° coluna: ", i + 1, j + 1);
+				mat[i][j] = input.nextInt();
+			}
+		}
+		Matriz matriz = new Matriz(numeroLinhas, numeroColunas, nome);
+		matriz.setMatriz(mat);
+		return matriz;
+	}
 
-        // MATRIZ A
-        System.out.println("| -- Matriz A -- |");
-        System.out.print("Insira o número de linhas: ");
-        int linhasA = input.nextInt();
-        System.out.print("Insira o número de colunas: ");
-        int colunasA = input.nextInt();
-
-        int[][] A = new int[linhasA][colunasA];
-
-        for (int i = 0; i < linhasA ; i++) {
-            for (int j = 0; j < colunasA; j++) {
-                System.out.printf("Insira o elemento da %d° linha e %d° coluna: ", i + 1, j + 1);
-                A[i][j] = input.nextInt();
-            }
-        }
-
-        // MATRIZ B
-        System.out.println("| -- Matriz B -- |");
-        System.out.print("Insira o número de linhas: ");
-        int linhasB = input.nextInt();
-        System.out.print("Insira o número de colunas: ");
-        int colunasB = input.nextInt();
-
-        int[][] B = new int[linhasB][colunasB];
-
-        for (int i = 0; i < linhasB ; i++) {
-            for (int j = 0; j < colunasB; j++) {
-                System.out.printf("Insira o elemento da %d° linha e %d° coluna: ", i + 1, j + 1);
-                B[i][j] = input.nextInt();
-            }
-        }
-
-        // imprimindo A
-        System.out.println();
-        System.out.println("A: ");
-        for (int i = 0; i < linhasA ; i++) {
-            for (int j = 0; j < colunasA; j++) {
-                System.out.printf("| %d | ", A[i][j]);
-            }
-            System.out.println();
-        }
-
-        System.out.println();
-
-        // imprimindo B
-        System.out.println();
-        System.out.println("B: ");
-        for (int i = 0; i < linhasB ; i++) {
-            for (int j = 0; j < colunasB; j++) {
-                System.out.printf("| %d | ", B[i][j]);
-            }
-            System.out.println();
-        }
-
-        
-        if (colunasA == linhasB) {
-            int[][] AB = new int[linhasA][colunasB];
-
-            for (int i = 0; i < linhasA ; i++) {
-                for (int j = 0; j < colunasB; j++) {
-
-                    for (int k = 0; k < colunasA ; k++) {
-                        AB[i][j] += A[i][k] * B[k][j] ;
-                    }
-                    
-                }
-            }
-
-            // imprimindo AB
-            System.out.println();
-            System.out.println("AB: ");
-            for (int i = 0; i < AB.length ; i++) {
-                for (int j = 0; j < AB[i].length; j++) {
-                    System.out.printf("| %d | ", AB[i][j]);
-                }
-                System.out.println();
-            }
-        }
-        else {
-            System.out.println("\nA x B não existe, pois o número de colunas de A é diferente do de linhas em B.");
-        }
-
-    }
+	/**
+	 * Multiplica duas matrizes e retorna o resultado.
+	 * 
+	 * @param A
+	 *            primeira matriz.
+	 * @param B
+	 *            segunda matriz.
+	 * 
+	 * @return matriz resultante da multiplicação da primeira pela segunda.
+	 */
+	private static Matriz multiplicaMatrizes(Matriz A, Matriz B) {
+		if (A.getNumeroColunas() == B.getNumeroLinhas()) {
+			Matriz AB = new Matriz(A.getNumeroLinhas(), B.getNumeroColunas(), "AB");
+			int[][] mat = new int[A.getNumeroLinhas()][B.getNumeroColunas()];
+			for (int i = 0; i < A.getNumeroLinhas(); i++) {
+				for (int j = 0; j < B.getNumeroColunas(); j++) {
+					for (int k = 0; k < A.getNumeroColunas(); k++) {
+						mat[i][j] += A.getMatriz()[i][k] * B.getMatriz()[k][j];
+					}
+				}
+			}
+			AB.setMatriz(mat);
+			return AB;
+		}
+		return null;
+	}
 }
