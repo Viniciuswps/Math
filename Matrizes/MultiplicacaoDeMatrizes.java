@@ -59,7 +59,7 @@ public class MultiplicacaoDeMatrizes {
 	 * 
 	 * @return matriz resultante da multiplicação da primeira pela segunda.
 	 */
-	private static Matriz multiplicaMatrizes(Matriz A, Matriz B) {
+	public static Matriz multiplicaMatrizes(Matriz A, Matriz B) {
 		if (A.getNumeroColunas() == B.getNumeroLinhas()) {
 			Matriz AB = new Matriz(A.getNumeroLinhas(), B.getNumeroColunas(), "AB");
 			int[][] mat = new int[A.getNumeroLinhas()][B.getNumeroColunas()];
