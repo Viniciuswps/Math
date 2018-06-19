@@ -1,6 +1,13 @@
 #-*-coding: utf-8-*-
 
 '''
+DEFINIÇÃO DA PROPRIEDADE REFLEXIVA:
+Seja R uma relação binária em A.
+R é reflexiva quando (x, x) ∈ R para todo x ∈ A.
+'''
+
+'''
+EXEMPLO:
 Considere as relações abaixo no conjunto A = {1, 2, 3, 4}:
 
 R1 = {(1, 1),(1, 2),(2, 1),(2, 2),(3, 4),(4, 1),(4, 4)}
