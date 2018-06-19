@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Representa uma matriz.
  * 
@@ -44,6 +46,21 @@ public class Matriz {
 		this.numeroLinhas = numeroLinhas;
 		this.numeroColunas = numeroColunas;
 		this.matriz = new int[numeroLinhas][numeroColunas];
+	}
+
+	/**
+	 * Constrói uma matriz recebendo como parâmetro um representação de matriz.
+	 * 
+	 * @param matriz
+	 *            array que representa a matriz.
+	 * @param nome
+	 *            nome da matriz.
+	 */
+	public Matriz(int[][] matriz, String nome) {
+		this.matriz = matriz;
+		this.nome = nome;
+		this.numeroLinhas = matriz.length;
+		this.numeroColunas = matriz[0].length;
 	}
 
 	/**
@@ -96,5 +113,33 @@ public class Matriz {
 			msg += System.lineSeparator();
 		}
 		return msg;
+	}
+
+	/**
+	 * Hash Code
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.deepHashCode(matriz);
+		return result;
+	}
+
+	/**
+	 * Verifica se duas matrizes são iguais através do array que o representam.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Matriz other = (Matriz) obj;
+		if (!Arrays.deepEquals(matriz, other.matriz))
+			return false;
+		return true;
 	}
 }
