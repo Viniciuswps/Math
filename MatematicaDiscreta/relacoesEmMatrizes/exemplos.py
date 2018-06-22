@@ -6,6 +6,7 @@ from  matriz_reflexiva import eh_reflexiva
 from  matriz_simetrica import eh_simetrica
 from matriz_antisimetrica import eh_antisimetrica
 
+
 A = [1,2,3]
 relacao = Relacao("a > b", A, A)
 print "EXEMPLO 1:"
@@ -26,6 +27,7 @@ assert not eh_reflexiva(relacao)
 assert not eh_simetrica(relacao)
 assert eh_antisimetrica(relacao)
 
+
 A = [1,2,3]
 relacao = Relacao("a >= b", A, A)
 print "EXEMPLO 3:"
@@ -34,6 +36,7 @@ print relacao.__matriz_relacao__()
 assert eh_reflexiva(relacao)
 assert not eh_simetrica(relacao)
 assert eh_antisimetrica(relacao)
+
 
 A = [1,2,3]
 relacao = Relacao("a = b", A, A)
