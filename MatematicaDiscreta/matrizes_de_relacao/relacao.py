@@ -1,5 +1,7 @@
 #-*-coding: utf-8-*-
 
+from matriz import Matriz
+
 class Relacao:
 
     '''
@@ -71,3 +73,16 @@ class Relacao:
         msg += "B = " + str(self.B) + "\n"
         msg += "R = " + str(self.relacao)
         return msg
+
+    # retorna a matriz de relação da relaçao R
+    def __matriz_relacao__(self):
+        matriz = Matriz(len(self.A), len(self.B))
+        for i in range(matriz.__getNlinhas__()):
+            for j in range(matriz.__getNcolunas__()):
+                if (self.A[i], self.B[j]) in self.relacao:
+                    matriz.__addElemento__(i, 1)
+                else:
+                    matriz.__addElemento__(i, 0)
+        return matriz
+    
+    
