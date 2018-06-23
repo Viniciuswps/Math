@@ -9,7 +9,7 @@ class Relacao:
     
     @param propriedade
             propriedade da relação. 
-            prop disponiveis : "a = b", "a > b", "a >= b", "a < b", "a <= b" e "".  
+            prop disponiveis : "a = b", "a > b", "a >= b", "a < b", "a <= b", a + b é par", "a + b é impar" e "".  
     @param A
             conjunto A.
     @param B
@@ -26,15 +26,13 @@ class Relacao:
             for a in A:
                 for b in B:
                     if a == b:
-                        self.relacao.append((a,b))
-            
+                        self.relacao.append((a,b))  
 
         elif self.propriedade == "a > b":   
             for a in A:
                 for b in B:
                     if a > b:
-                        self.relacao.append((a,b))
-            
+                        self.relacao.append((a,b))       
 
         elif self.propriedade == "a >= b":   
             for a in A:
@@ -54,6 +52,18 @@ class Relacao:
                     if a <= b:
                         self.relacao.append((a,b))
         
+        elif self.propriedade == "a + b é par":   
+            for a in A:
+                for b in B:
+                    if (a + b) // 2 = 0:
+                        self.relacao.append((a,b))
+
+        elif self.propriedade == "a + b é impar":   
+            for a in A:
+                for b in B:
+                    if (a + b) // 2 = 1:
+                        self.relacao.append((a,b))
+
         # relacao simples
         elif self.propriedade == "":
             relacao = []
