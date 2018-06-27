@@ -73,7 +73,7 @@ class Relacao:
             elif self.propriedade == "a divide b":   
                 for a in A:
                     for b in B:
-                        if a % b == 0:
+                        if b != 0 a % b == 0:
                             self.relacao.append((a,b))
 
             # relacao simples
