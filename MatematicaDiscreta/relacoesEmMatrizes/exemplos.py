@@ -1,7 +1,7 @@
 #-*-coding: utf-8-*-
 
 import matriz_reflexiva
-from matrizes_de_relacao.relacao import Relacao
+from matrizesDeRelacao.relacao import Relacao
 from  matriz_reflexiva import eh_reflexiva
 from  matriz_simetrica import eh_simetrica
 from matriz_antisimetrica import eh_antisimetrica
