@@ -74,7 +74,7 @@ class Relacao:
                 for a in A:
                     for b in B:
                         if b != 0 and a % b == 0:
-                            self.relacao.append((a,b))
+                            self.relacao.append((b,a))
 
             # relacao simples
             elif self.propriedade == "":
