@@ -64,11 +64,36 @@ public class Matriz {
 	}
 
 	/**
+	 * Método que multiplica uma matriz por outra.
+	 * 
+	 * @param B
+	 *            matriz b.
+	 * 
+	 * @return resultante da multiplicação, se possível.
+	 */
+	public Matriz multiplicaMatriz(Matriz B) {
+		if (this.numeroColunas == B.getNumeroLinhas()) {
+			Matriz AB = new Matriz(this.numeroLinhas, B.getNumeroColunas(), "AB");
+			int[][] mat = new int[this.numeroLinhas][B.getNumeroColunas()];
+			for (int i = 0; i < this.numeroLinhas; i++) {
+				for (int j = 0; j < B.getNumeroColunas(); j++) {
+					for (int k = 0; k < this.numeroColunas; k++) {
+						mat[i][j] += this.matriz[i][k] * B.getMatriz()[k][j];
+					}
+				}
+			}
+			AB.setMatriz(mat);
+			return AB;
+		}
+		return null;
+	}
+
+	/**
 	 * retorna a quantidade de linhas da martiz.
 	 * 
 	 * @return qtd linhas.
 	 */
-	public int getNumeroLinhas() {
+	private int getNumeroLinhas() {
 		return numeroLinhas;
 	}
 
@@ -77,16 +102,16 @@ public class Matriz {
 	 * 
 	 * @return qtd colunas.
 	 */
-	public int getNumeroColunas() {
+	private int getNumeroColunas() {
 		return numeroColunas;
 	}
 
 	/**
-	 * Retorna o vetor que representa a matriz.
+	 * Retorna o array que representa a matriz.
 	 * 
-	 * @return
+	 * @return o array que representa a matriz.
 	 */
-	public int[][] getMatriz() {
+	private int[][] getMatriz() {
 		return matriz;
 	}
 

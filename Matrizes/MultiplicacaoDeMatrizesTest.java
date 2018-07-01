@@ -43,10 +43,10 @@ public class MultiplicacaoDeMatrizesTest {
 	@Test
 	public void testMultiplicaMatrizes() {
 		AB = new Matriz(matAB, "AB");
-		assertEquals(AB, MultiplicacaoDeMatrizes.multiplicaMatrizes(A, B));
+		assertEquals(AB, A.multiplicaMatriz(B));
 
 		CD = new Matriz(matCD, "CD");
-		assertEquals(CD, MultiplicacaoDeMatrizes.multiplicaMatrizes(C, D));
+		assertEquals(CD, C.multiplicaMatriz(D));
 	}
 
 }

@@ -14,8 +14,8 @@ public class MultiplicacaoDeMatrizes {
 		Matriz B = criaMatriz("B");
 		System.out.println(A.toString());
 		System.out.println(B.toString());
-		if (multiplicaMatrizes(A, B) != null) {
-			Matriz AB = (multiplicaMatrizes(A, B));
+		if (A.multiplicaMatriz(B) != null) {
+			Matriz AB = (A.multiplicaMatriz(B));
 			System.out.println(AB.toString());
 		} else {
 			System.out.println("A x B não existe, pois o número de colunas de A é diferente do de linhas em B.");
@@ -49,30 +49,4 @@ public class MultiplicacaoDeMatrizes {
 		return matriz;
 	}
 
-	/**
-	 * Multiplica duas matrizes e retorna o resultado.
-	 * 
-	 * @param A
-	 *            primeira matriz.
-	 * @param B
-	 *            segunda matriz.
-	 * 
-	 * @return matriz resultante da multiplicação da primeira pela segunda.
-	 */
-	public static Matriz multiplicaMatrizes(Matriz A, Matriz B) {
-		if (A.getNumeroColunas() == B.getNumeroLinhas()) {
-			Matriz AB = new Matriz(A.getNumeroLinhas(), B.getNumeroColunas(), "AB");
-			int[][] mat = new int[A.getNumeroLinhas()][B.getNumeroColunas()];
-			for (int i = 0; i < A.getNumeroLinhas(); i++) {
-				for (int j = 0; j < B.getNumeroColunas(); j++) {
-					for (int k = 0; k < A.getNumeroColunas(); k++) {
-						mat[i][j] += A.getMatriz()[i][k] * B.getMatriz()[k][j];
-					}
-				}
-			}
-			AB.setMatriz(mat);
-			return AB;
-		}
-		return null;
-	}
 }
