@@ -5,7 +5,7 @@
 
 Um número binomial, denotado como (n k), com n e k ∈ N e k <= n   é definido como:
 
-![numero binomial](https://github.com/viniciusbds/math/blob/master/TeoremaBinomial/num-binomial.jpg)
+![numero binomial](https://github.com/viniciusbds/math/blob/master/TeoremaBinomial/img/num-binomial.jpg)
 
 **n** é denotado numerador do quoeficiente binomial e **k** o denominador.
 
